@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Narendra Kumar | SEO Executive</title>
+<meta name="description" content="Narendra Kumar - SEO Executive at IInfotanks Pvt Ltd. Expert in technical SEO, keyword research, on-page/off-page optimization, AEO, GEO, and EEAT strategies."/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  :root {
+    --bg: #0a0812;
+    --bg2: #100d1a;
+    --bg3: #160f28;
+    --surface: #1c1530;
+    --surface2: #221b3a;
+    --border: rgba(160,120,255,0.15);
+    --purple: #9b5de5;
+    --purple-bright: #bf7fff;
+    --purple-dim: #6b3aaa;
+    --violet: #c77dff;
+    --pink: #e040fb;
+    --cyan: #00f5d4;
+    --text: #f0ebff;
+    --text-muted: #9a8cb5;
+    --text-dim: #5c4f7a;
+    --gold: #ffd166;
+    --radius: 14px;
+    --radius-lg: 22px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; }
+
+  /* ─── NOISE OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ─── AMBIENT GLOW ─── */
+  .glow-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+  }
+  .glow-orb-1 { width: 500px; height: 500px; background: #9b5de5; top: -150px; right: -100px; }
+  .glow-orb-2 { width: 350px; height: 350px; background: #e040fb; bottom: 100px; left: -80px; }
+  .glow-orb-3 { width: 250px; height: 250px; background: #00f5d4; bottom: 20%; right: 10%; opacity: 0.1; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,8,18,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--purple-bright), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--text);
+    background: var(--surface);
+  }
+  .nav-links a.active { color: var(--purple-bright); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--purple), var(--pink)) !important;
+    color: #fff !important;
+    padding: 8px 20px !important;
+  }
+  .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* Hamburger */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 200; }
+  .hamburger span { display: block; width: 26px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px; left: 0; right: 0;
+    background: rgba(10,8,18,0.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--text-muted); text-decoration: none; padding: 12px 16px; border-radius: 8px; font-size: 1rem; cursor: pointer; }
+  .mobile-menu a:hover { background: var(--surface); color: var(--text); }
+
+  /* ─── PAGE SYSTEM ─── */
+  .page { display: none; min-height: 100vh; padding-top: 70px; position: relative; z-index: 1; }
+  .page.active { display: block; animation: fadeUp 0.5s ease; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── HERO / ABOUT ─── */
+  .hero {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(155,93,229,0.15);
+    border: 1px solid rgba(155,93,229,0.4);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    color: var(--purple-bright);
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+  .hero-badge span { width: 6px; height: 6px; background: var(--cyan); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+  .hero h1 {
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -1.5px;
+  }
+  .hero h1 .name-gradient {
+    background: linear-gradient(135deg, #bf7fff 0%, #e040fb 50%, #00f5d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    max-width: 500px;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+  .hero-tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .hero-tag.hot { border-color: rgba(224,64,251,0.4); color: var(--violet); background: rgba(224,64,251,0.08); }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(155,93,229,0.4); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-secondary:hover { background: var(--surface); border-color: var(--purple); }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .avatar-ring {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--purple), var(--pink), var(--cyan));
+    padding: 3px;
+    animation: spin 8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--bg2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    animation: spin 8s linear infinite reverse;
+  }
+  .stat-cards {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+  }
+  .stat-card {
+    background: rgba(22,15,40,0.9);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    min-width: 100px;
+  }
+  .stat-card .num {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--purple-bright), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-card .lbl { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+
+  /* ─── ABOUT BIO SECTION ─── */
+  .about-bio {
+    max-width: 1100px;
+    margin: 80px auto 60px;
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+  }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--purple-bright);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+  .about-text { color: var(--text-muted); line-height: 1.9; margin-bottom: 16px; }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .info-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--bg3);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: 0.92rem;
+  }
+  .info-list li .ico { color: var(--purple-bright); width: 20px; flex-shrink: 0; }
+  .info-list li strong { color: var(--text-muted); font-weight: 400; font-size: 0.8rem; display: block; }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+  .section-header { text-align: center; margin-bottom: 60px; }
+  .section-header .section-title { font-size: 2.5rem; }
+  .divider-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    border-radius: 2px;
+    margin: 16px auto 0;
+  }
+
+  /* ─── SERVICES ─── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+  .service-card:hover { border-color: var(--purple-dim); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  .service-card h3 { font-size: 1.15rem; margin-bottom: 12px; font-weight: 700; }
+  .service-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; }
+  .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+  .service-tag {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 5px;
+    background: rgba(155,93,229,0.12);
+    color: var(--purple-bright);
+    border: 1px solid rgba(155,93,229,0.2);
+  }
+
+  /* ─── SKILLS ─── */
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .skill-group h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--purple-bright);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .skill-item { margin-bottom: 18px; }
+  .skill-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .skill-name { font-size: 0.9rem; font-weight: 500; }
+  .skill-pct { font-size: 0.82rem; color: var(--text-muted); }
+  .skill-bar { height: 6px; background: var(--surface2); border-radius: 10px; overflow: hidden; }
+  .skill-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--purple), var(--violet));
+    transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 14px;
+    margin-top: 50px;
+  }
+  .tool-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .tool-chip:hover { border-color: var(--purple); background: var(--surface2); transform: translateY(-2px); }
+  .tool-chip i { color: var(--purple-bright); font-size: 1.1rem; }
+
+  /* ─── EXPERIENCE ─── */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--purple), var(--pink), transparent);
+    border-radius: 2px;
+  }
+  .timeline-item { position: relative; margin-bottom: 40px; }
+  .timeline-dot {
+    position: absolute;
+    left: -38px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--purple);
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 12px var(--purple);
+  }
+  .timeline-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    transition: border-color 0.2s;
+  }
+  .timeline-card:hover { border-color: var(--purple-dim); }
+  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; flex-wrap: wrap; gap: 10px; }
+  .tl-role { font-size: 1.1rem; font-weight: 700; }
+  .tl-company { color: var(--purple-bright); font-size: 0.9rem; margin-bottom: 6px; }
+  .tl-period {
+    background: rgba(155,93,229,0.12);
+    color: var(--purple-bright);
+    border: 1px solid rgba(155,93,229,0.25);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .tl-desc { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; margin-top: 12px; }
+  .tl-achievements { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .tl-achievement {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .tl-achievement i { color: var(--cyan); margin-top: 4px; flex-shrink: 0; font-size: 0.7rem; }
+
+  /* ─── CERTIFICATIONS ─── */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 26px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: all 0.2s;
+  }
+  .cert-card:hover { border-color: var(--purple-dim); transform: translateY(-3px); }
+  .cert-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--purple-dim), var(--purple));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .cert-info h4 { font-size: 0.98rem; margin-bottom: 4px; }
+  .cert-info .cert-issuer { font-size: 0.82rem; color: var(--purple-bright); margin-bottom: 8px; }
+  .cert-info .cert-year {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--bg3);
+    padding: 3px 10px;
+    border-radius: 5px;
+  }
+
+  /* ─── CASE STUDIES ─── */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+  .case-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .case-card:hover { transform: translateY(-5px); border-color: var(--purple-dim); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+  .case-header {
+    padding: 28px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .case-cat {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--purple-bright);
+    margin-bottom: 10px;
+  }
+  .case-header h3 { font-size: 1.15rem; margin-bottom: 8px; }
+  .case-header p { color: var(--text-muted); font-size: 0.87rem; }
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 0;
+  }
+  .case-metric {
+    padding: 20px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .case-metric:last-child { border-right: none; }
+  .case-metric .val {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--cyan);
+    display: block;
+  }
+  .case-metric .lbl { font-size: 0.72rem; color: var(--text-muted); }
+  .case-footer { padding: 18px 28px; border-top: 1px solid var(--border); }
+  .case-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .case-tag { font-size: 0.72rem; padding: 3px 10px; border-radius: 5px; background: var(--bg3); color: var(--text-muted); }
+
+  /* ─── BLOG ─── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .blog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .blog-card:hover { transform: translateY(-4px); border-color: var(--purple-dim); }
+  .blog-thumb {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, rgba(22,15,40,0.8));
+  }
+  .blog-body { padding: 24px; }
+  .blog-meta { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+  .blog-cat {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--purple-bright);
+    background: rgba(155,93,229,0.12);
+    padding: 3px 10px;
+    border-radius: 5px;
+  }
+  .blog-date { font-size: 0.78rem; color: var(--text-dim); }
+  .blog-card h3 { font-size: 1.02rem; line-height: 1.4; margin-bottom: 10px; }
+  .blog-card p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.7; }
+  .blog-card .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.82rem;
+    color: var(--purple-bright);
+    font-weight: 600;
+  }
+
+  /* ─── FLOATING CTA / CONTACT BAR ─── */
+  .contact-bar {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 50px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .contact-bar h2 { font-size: 2rem; max-width: 400px; }
+  .contact-bar h2 span {
+    background: linear-gradient(135deg, var(--purple-bright), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .contact-links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: all 0.2s;
+    background: var(--bg2);
+  }
+  .contact-link:hover { border-color: var(--purple); color: var(--text); background: var(--surface2); }
+  .contact-link i { color: var(--purple-bright); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 30px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  footer .social-links { display: flex; gap: 16px; }
+  footer .social-links a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+  footer .social-links a:hover { color: var(--purple-bright); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { padding: 40px 24px; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .about-bio { grid-template-columns: 1fr; padding: 0 24px; margin-top: 40px; }
+    .section { padding: 60px 24px; }
+    .skills-layout { grid-template-columns: 1fr; }
+    .contact-bar { padding: 40px 24px; }
+    footer { padding: 24px; }
+  }
+
+  /* ─── BADGE (NEW / HOT) ─── */
+  .badge-new {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--cyan), #00b4d8);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+  .badge-hot {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--pink), var(--gold));
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+
+  /* gradient backgrounds for blog thumbs */
+  .thumb-1 { background: linear-gradient(135deg, #1a0533, #4a0080); }
+  .thumb-2 { background: linear-gradient(135deg, #001a33, #004080); }
+  .thumb-3 { background: linear-gradient(135deg, #001a1a, #003333); }
+  .thumb-4 { background: linear-gradient(135deg, #1a0026, #4d0066); }
+  .thumb-5 { background: linear-gradient(135deg, #0d001a, #2b0045); }
+  .thumb-6 { background: linear-gradient(135deg, #001a0d, #003319); }
+
+  /* color accents for service icons */
+  .ic-1 { background: rgba(155,93,229,0.15); color: var(--purple-bright); }
+  .ic-2 { background: rgba(0,245,212,0.1); color: var(--cyan); }
+  .ic-3 { background: rgba(224,64,251,0.12); color: var(--pink); }
+  .ic-4 { background: rgba(255,209,102,0.1); color: var(--gold); }
+  .ic-5 { background: rgba(0,245,212,0.1); color: var(--cyan); }
+  .ic-6 { background: rgba(224,64,251,0.12); color: var(--pink); }
+
+</style>
+</head>
+<body>
+
+<!-- Ambient glow -->
+<div class="glow-orb glow-orb-1"></div>
+<div class="glow-orb glow-orb-2"></div>
+<div class="glow-orb glow-orb-3"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#" onclick="showPage('about')">NK.</a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('about')" id="nav-about" class="active">About</a></li>
+    <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
+    <li><a onclick="showPage('skills')" id="nav-skills">Skills</a></li>
+    <li><a onclick="showPage('experience')" id="nav-experience">Experience</a></li>
+    <li><a onclick="showPage('certifications')" id="nav-certifications">Certifications</a></li>
+    <li><a onclick="showPage('casestudies')" id="nav-casestudies">Case Studies</a></li>
+    <li><a onclick="showPage('blog')" id="nav-blog">Blog</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('about');toggleMenu()">About</a>
+  <a onclick="showPage('services');toggleMenu()">Services</a>
+  <a onclick="showPage('skills');toggleMenu()">Skills</a>
+  <a onclick="showPage('experience');toggleMenu()">Experience</a>
+  <a onclick="showPage('certifications');toggleMenu()">Certifications</a>
+  <a onclick="showPage('casestudies');toggleMenu()">Case Studies</a>
+  <a onclick="showPage('blog');toggleMenu()">Blog</a>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: ABOUT
+════════════════════════════════════════ -->
+<div class="page active" id="page-about">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <h1>Hi, I'm <br><span class="name-gradient">Narendra Kumar</span></h1>
+        <p class="hero-subtitle">SEO Executive at <strong>IInfotanks Pvt Ltd</strong> — turning search engines into growth engines through data-driven strategy and cutting-edge SEO practices.</p>
+        <div class="hero-tags">
+          <span class="hero-tag">🔍 Technical SEO</span>
+          <span class="hero-tag">📈 Keyword Research</span>
+          <span class="hero-tag">🔗 Link Building</span>
+          <span class="hero-tag hero-tag hot">⚡ AEO <span class="badge-hot">NEW</span></span>
+          <span class="hero-tag hero-tag hot">🌍 GEO <span class="badge-hot">NEW</span></span>
+          <span class="hero-tag hero-tag hot">🏆 E-E-A-T <span class="badge-new">2025</span></span>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('casestudies')"><i class="fa fa-chart-line"></i> View Case Studies</button>
+          <button class="btn-secondary" onclick="showPage('services')"><i class="fa fa-arrow-right"></i> My Services</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div style="position:relative;">
+          <div class="avatar-ring">
+            <div class="avatar-inner">👨‍💻</div>
+          </div>
+          <div class="stat-cards">
+            <div class="stat-card"><div class="num">2.8</div><div class="lbl">Years Exp.</div></div>
+            <div class="stat-card"><div class="num">9</div><div class="lbl">Projects</div></div>
+            <div class="stat-card"><div class="num">↑100%</div><div class="lbl">Avg Traffic</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="about-bio">
+    <div>
+      <p class="section-label">About Me</p>
+      <h2 class="section-title">Driving Organic Growth with Precision & Purpose</h2>
+      <p class="about-text">I'm an SEO Executive passionate about improving search engine rankings and driving qualified organic traffic. At IInfotanks Pvt Ltd, I lead comprehensive SEO strategies that align with Google's ever-evolving algorithms.</p>
+      <p class="about-text">My expertise spans keyword research, on-page and off-page optimization, technical SEO audits, and content optimization. I stay ahead of the curve by mastering emerging areas like <strong style="color:var(--purple-bright)">Answer Engine Optimization (AEO)</strong>, <strong style="color:var(--cyan)">Generative Engine Optimization (GEO)</strong>, and <strong style="color:var(--gold)">E-E-A-T principles</strong>.</p>
+      <p class="about-text">I leverage tools like Google Analytics, Search Console, SEMrush, and Ahrefs to make data-backed decisions that consistently deliver measurable results.</p>
+    </div>
+    <div class="about-card">
+      <p class="section-label">Quick Info</p>
+      <ul class="info-list">
+        <li>
+          <i class="fa fa-user ico"></i>
+          <div><strong>Full Name</strong>Narendra Kumar</div>
+        </li>
+        <li>
+          <i class="fa fa-briefcase ico"></i>
+          <div><strong>Role</strong>SEO Executive</div>
+        </li>
+        <li>
+          <i class="fa fa-building ico"></i>
+          <div><strong>Company</strong>IInfotanks Media Pvt. Ltd</div>
+        </li>
+        <li>
+          <i class="fa fa-map-marker-alt ico"></i>
+          <div><strong>Location</strong>Nandyal, Andhra Pradesh, India</div>
+        </li>
+        <li>
+          <i class="fa fa-fire ico"></i>
+          <div><strong>Specialization</strong>Technical SEO + AEO + GEO + E-E-A-T</div>
+        </li>
+        <li>
+          <i class="fa fa-check-circle ico"></i>
+          <div><strong>Status</strong>Available for Freelance Projects</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Contact bar at bottom -->
+  <div class="contact-bar">
+    <div>
+      <h2>Ready to grow your <span>organic traffic?</span></h2>
+      <p style="color:var(--text-muted);margin-top:8px;font-size:0.9rem;">Let's build a strategy that gets you to page one.</p>
+    </div>
+    <div class="contact-links">
+      <a href="gudurunarendra60@gmail.com" class="contact-link"><i class="fa fa-envelope"></i> Email Me</a>
+      <a href="https://www.linkedin.com/in/narendra-kumar-bb930416b/" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="tel:+91-7095278474" class="contact-link"><i class="fa fa-phone"></i> Call Me</a>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Narendra Kumar · SEO Executive</span>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/narendra-kumar-bb930416b/"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/gudurunarendra"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: SERVICES
+════════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">What I Do</p>
+      <h2 class="section-title">SEO Services I Offer</h2>
+      <p style="color:var(--text-muted);max-width:500px;margin:16px auto 0;">Comprehensive, results-driven SEO solutions tailored to elevate your online presence and drive sustainable organic growth.</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon ic-1"><i class="fa fa-cogs"></i></div>
+        <h3>Technical SEO Audits</h3>
+        <p>In-depth website audits covering crawlability, indexation, site speed, Core Web Vitals, schema markup, and structured data — ensuring search engines can fully access and understand your site.</p>
+        <div class="service-tags">
+          <span class="service-tag">Core Web Vitals</span>
+          <span class="service-tag">Schema Markup</span>
+          <span class="service-tag">Site Speed</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon ic-2"><i class="fa fa-search"></i></div>
+        <h3>Keyword Research & Strategy</h3>
+        <p>Discovering high-value, intent-driven keywords including long-tail, semantic, and voice search queries to build a content strategy that captures the right audience at every funnel stage.</p>
+        <div class="service-tags">
+          <span class="service-tag">Semantic SEO</span>
+          <span class="service-tag">LSI Keywords</span>
+          <span class="service-tag">Voice Search</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon ic-3"><i class="fa fa-file-alt"></i></div>
+        <h3>On-Page Optimization</h3>
+        <p>Optimizing meta tags, headers, content structure, internal linking, image alt text, and E-E-A-T signals to maximise relevance and authority for each page on your website.</p>
+        <div class="service-tags">
+          <span class="service-tag">E-E-A-T</span>
+          <span class="service-tag">Meta Optimization</span>
+          <span class="service-tag">Content Structure</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon ic-4"><i class="fa fa-link"></i></div>
+        <h3>Link Building Strategies</h3>
+        <p>Building high-quality, relevant backlinks through guest posting, digital PR, broken link building, and HARO outreach to strengthen your domain authority and search rankings.</p>
+        <div class="service-tags">
+          <span class="service-tag">Guest Posting</span>
+          <span class="service-tag">Digital PR</span>
+          <span class="service-tag">HARO</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon ic-5"><i class="fa fa-robot"></i></div>
+        <h3>AEO & GEO Optimization <span class="badge-hot">NEW</span></h3>
+        <p>Optimizing content for Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) to ensure your brand appears in AI-driven answers, featured snippets, and ChatGPT/Gemini responses.</p>
+        <div class="service-tags">
+          <span class="service-tag">AEO</span>
+          <span class="service-tag">GEO</span>
+          <span class="service-tag">AI Search</span>
+          <span class="service-tag">Featured Snippets</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon ic-6"><i class="fa fa-chart-bar"></i></div>
+        <h3>SEO Analytics & Reporting</h3>
+        <p>Tracking, analyzing, and reporting on key SEO KPIs using Google Analytics 4, Google Search Console, and third-party tools — turning data into actionable insights for continuous improvement.</p>
+        <div class="service-tags">
+          <span class="service-tag">Google Analytics 4</span>
+          <span class="service-tag">Search Console</span>
+          <span class="service-tag">Reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Narendra Kumar · SEO Executive</span>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/narendra-kumar-bb930416b/"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: SKILLS
+════════════════════════════════════════ -->
+<div class="page" id="page-skills">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Expertise</p>
+      <h2 class="section-title">Skills & Tools</h2>
+      <p style="color:var(--text-muted);max-width:500px;margin:16px auto 0;">A well-rounded toolkit built through years of hands-on SEO practice.</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="skills-layout">
+      <div class="skill-group">
+        <h3><i class="fa fa-code"></i> &nbsp;SEO Skills</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Technical SEO</span><span class="skill-pct">92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">On-Page Optimization</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Keyword Research</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Link Building</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Content Optimization</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3><i class="fa fa-star"></i> &nbsp;Emerging Skills</h3>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">AEO (Answer Engine Optimization)</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%;background:linear-gradient(90deg,var(--cyan),#00b4d8)"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">GEO (Generative Engine Opt.)</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%;background:linear-gradient(90deg,var(--cyan),#00b4d8)"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">E-E-A-T Strategies</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%;background:linear-gradient(90deg,var(--gold),#f4a261)"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Schema Markup / Structured Data</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%;background:linear-gradient(90deg,var(--pink),var(--violet))"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-top"><span class="skill-name">Core Web Vitals</span><span class="skill-pct">79%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:79%;background:linear-gradient(90deg,var(--pink),var(--violet))"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Syne',sans-serif;font-size:1.3rem;margin:60px 0 24px;font-weight:700;">Tools I Use</h3>
+    <div class="tools-grid">
+      <div class="tool-chip"><i class="fab fa-google"></i> Google Analytics</div>
+      <div class="tool-chip"><i class="fa fa-search"></i> Search Console</div>
+      <div class="tool-chip"><i class="fa fa-chart-line"></i> SEMrush</div>
+      <div class="tool-chip"><i class="fa fa-anchor"></i> Ahrefs</div>
+      <div class="tool-chip"><i class="fa fa-bolt"></i> Moz Pro</div>
+      <div class="tool-chip"><i class="fab fa-wordpress"></i> WordPress</div>
+      <div class="tool-chip"><i class="fa fa-table"></i> Google Sheets</div>
+      <div class="tool-chip"><i class="fa fa-robot"></i> ChatGPT / AI Tools</div>
+      <div class="tool-chip"><i class="fa fa-map-marked"></i> Google My Business</div>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Narendra Kumar · SEO Executive</span>
+    <div class="social-links"><a href="https://www.linkedin.com/in/narendra-kumar-bb930416b/"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: EXPERIENCE
+════════════════════════════════════════ -->
+<div class="page" id="page-experience">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Career</p>
+      <h2 class="section-title">Work Experience</h2>
+      <p style="color:var(--text-muted);max-width:500px;margin:16px auto 0;">Building expertise one algorithm at a time.</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">SEO Executive</div>
+              <div class="tl-company"><i class="fa fa-building" style="margin-right:6px;font-size:0.8rem;"></i>IInfotanks Media Pvt. Ltd</div>
+            </div>
+            <span class="tl-period"> Aug 2023 – Apr 2026</span>
+          </div>
+          <p class="tl-desc">Leading all aspects of search engine optimization for client websites, from strategy and implementation to analysis and reporting. Responsible for improving organic search performance across B2B and B2C verticals.</p>
+          <div class="tl-achievements">
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Conducted comprehensive technical SEO audits and resolved critical issues impacting crawlability and indexation</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Developed and executed keyword strategies resulting in significant ranking improvements for target keywords</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Built scalable link-building pipelines through outreach, digital PR, and guest posting campaigns</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Implemented AEO and GEO strategies to capture AI-driven search traffic and featured snippet positions</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Monitored and reported on KPIs using GA4 and Search Console, delivering monthly performance insights</div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--cyan);box-shadow:0 0 12px var(--cyan);"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">SEO Intern</div>
+              <div class="tl-company"><i class="fa fa-building" style="margin-right:6px;font-size:0.8rem;"></i>Digital Agency (Internship)</div>
+            </div>
+            <span class="tl-period">Aug 2023 – Jan 2024</span>
+          </div>
+          <p class="tl-desc">Supported senior SEO specialists in implementing on-page optimizations, content strategies, and performance tracking for multiple client websites across different industries.</p>
+          <div class="tl-achievements">
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Performed keyword research and competitor analysis to identify content gaps and ranking opportunities</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Optimized meta titles, descriptions, headings, and internal linking across client sites</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Created and maintained SEO performance reports using Google Analytics and Looker Studio</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Assisted in local SEO optimization including Google My Business profile management</div>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot" style="background:var(--pink);box-shadow:0 0 12px var(--pink);"></div>
+        <div class="timeline-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">SEO Learner & Self-Practice</div>
+              <div class="tl-company"><i class="fa fa-graduation-cap" style="margin-right:6px;font-size:0.8rem;"></i>Personal Projects & Online Courses</div>
+            </div>
+            <span class="tl-period">2021 – 2022</span>
+          </div>
+          <p class="tl-desc">Invested in self-learning SEO fundamentals through online certifications, personal blogging projects, and affiliate websites — building a strong foundation in search engine mechanics and content strategy.</p>
+          <div class="tl-achievements">
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Built and ranked niche websites, applying white-hat SEO techniques from scratch</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Completed Google Analytics, Search Console, and multiple SEO certifications</div>
+            <div class="tl-achievement"><i class="fa fa-circle"></i>Studied algorithm updates (Panda, Penguin, Helpful Content, Spam Updates) and their impacts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Narendra Kumar · SEO Executive</span>
+    <div class="social-links"><a href="https://www.linkedin.com/in/narendra-kumar-bb930416b/"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: CERTIFICATIONS
+════════════════════════════════════════ -->
+<div class="page" id="page-certifications">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Credentials</p>
+      <h2 class="section-title">Certifications</h2>
+      <p style="color:var(--text-muted);max-width:500px;margin:16px auto 0;">Industry-recognized certifications validating my expertise in SEO and digital marketing.</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-info">
+          <h4>Google Analytics Certification</h4>
+          <div class="cert-issuer">Google Skillshop</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔍</div>
+        <div class="cert-info">
+          <h4>Google Search Console Fundamentals</h4>
+          <div class="cert-issuer">Google Skillshop</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div class="cert-info">
+          <h4>SEMrush SEO Toolkit Certification</h4>
+          <div class="cert-issuer">SEMrush Academy</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2023</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-info">
+          <h4>HubSpot Content Marketing Certification</h4>
+          <div class="cert-issuer">HubSpot Academy</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2023</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚡</div>
+        <div class="cert-info">
+          <h4>Moz SEO Fundamentals</h4>
+          <div class="cert-issuer">Moz Academy</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2022</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌐</div>
+        <div class="cert-info">
+          <h4>Digital Marketing Fundamentals</h4>
+          <div class="cert-issuer">Google Digital Garage</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2022</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📱</div>
+        <div class="cert-info">
+          <h4>Ahrefs SEO Training Course</h4>
+          <div class="cert-issuer">Ahrefs Academy</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2023</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-info">
+          <h4>AI for SEO & Content Strategy</h4>
+          <div class="cert-issuer">Coursera / Online</div>
+          <div class="cert-year"><i class="fa fa-calendar-check"></i> 2024 <span class="badge-new">NEW</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:60px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;text-align:center;">
+      <p class="section-label" style="text-align:center">Note</p>
+      <h3 style="font-size:1.3rem;margin-bottom:12px;">Replace with Your Actual Certificates</h3>
+      <p style="color:var(--text-muted);max-width:550px;margin:0 auto;font-size:0.9rem;">Update the certifications above with your real credentials. Add certificate links, verification URLs, and your actual completion dates to make this section fully authentic and trustworthy.</p>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Narendra Kumar · SEO Executive</span>
+    <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: CASE STUDIES
+════════════════════════════════════════ -->
+<div class="page" id="page-casestudies">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Results</p>
+      <h2 class="section-title">Case Studies</h2>
+      <p style="color:var(--text-muted);max-width:500px;margin:16px auto 0;">Real campaigns. Real data. Real results that speak for themselves.</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-cat">E-Commerce · Technical SEO</div>
+          <h3>Scaling Organic Traffic for an E-Commerce Brand</h3>
+          <p>Complete technical overhaul, content strategy, and link-building campaign for an online retail client experiencing ranking plateaus.</p>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><span class="val">+220%</span><span class="lbl">Organic Traffic</span></div>
+          <div class="case-metric"><span class="val">+85</span><span class="lbl">Keywords Ranked</span></div>
+          <div class="case-metric"><span class="val">6mo</span><span class="lbl">Timeline</span></div>
+        </div>
+        <div class="case-footer">
+          <div class="case-tags">
+            <span class="case-tag">Technical SEO</span>
+            <span class="case-tag">Content Clusters</span>
+            <span class="case-tag">Link Building</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-cat">B2B SaaS · AEO Strategy</div>
+          <h3>Answer Engine Optimization for SaaS Product</h3>
+          <p>Implemented AEO strategy to capture featured snippets and AI-generated answers for key industry queries, boosting brand visibility.</p>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><span class="val">40+</span><span class="lbl">Snippets Won</span></div>
+          <div class="case-metric"><span class="val">+155%</span><span class="lbl">Brand Queries</span></div>
+          <div class="case-metric"><span class="val">4mo</span><span class="lbl">Timeline</span></div>
+        </div>
+        <div class="case-footer">
+          <div class="case-tags">
+            <span class="case-tag">AEO</span>
+            <span class="case-tag">Featured Snippets</span>
+            <span class="case-tag">Schema Markup</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-cat">Local Business · Local SEO</div>
+          <h3>Local Dominance for Multi-Location Business</h3>
+          <p>Local SEO campaign including GMB optimization, citation building, and geo-targeted content for a service business with 5 locations.</p>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><span class="val">#1-3</span><span class="lbl">Local Pack</span></div>
+          <div class="case-metric"><span class="val">+300%</span><span class="lbl">Map Views</span></div>
+          <div class="case-metric"><span class="val">3mo</span><span class="lbl">Timeline</span></div>
+        </div>
+        <div class="case-footer">
+          <div class="case-tags">
+            <span class="case-tag">Local SEO</span>
+            <span class="case-tag">Google My Business</span>
+            <span class="case-tag">Citations</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-cat">Blog / Media · Content SEO</div>
+          <h3>Content-Led SEO Growth for News Blog</h3>
+          <p>Built a topic cluster model with E-E-A-T aligned content to establish topical authority and double monthly organic sessions.</p>
+        </div>
+        <div class="case-metrics">
+          <div class="case-metric"><span class="val">2x</span><span class="lbl">Monthly Sessions</span></div>
+          <div class="case-metric"><span class="val">+60%</span><span class="lbl">Pages Indexed</span></div>
+          <div class="case-metric"><span class="val">5mo</span><span class="lbl">Timeline</span></div>
+        </div>
+        <div class="case-footer">
+          <div class="case-tags">
+            <span class="case-tag">E-E-A-T</span>
+            <span class="case-tag">Topic Clusters</span>
+            <span class="case-tag">Content SEO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:50px;background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius-lg);padding:32px;text-align:center;">
+      <p style="color:var(--text-muted);font-size:0.88rem;">📌 <em>Tip: Replace these with your actual client projects. Add screenshots, GSC graphs, and verified metrics to make each case study compelling.</em></p>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Narendra Kumar · SEO Executive</span>
+    <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: BLOG / SEO TIPS
+════════════════════════════════════════ -->
+<div class="page" id="page-blog">
+  <div class="section">
+    <div class="section-header">
+      <p class="section-label">Insights</p>
+      <h2 class="section-title">Blog & SEO Tips</h2>
+      <p style="color:var(--text-muted);max-width:500px;margin:16px auto 0;">Sharing knowledge, experiments, and the latest in SEO strategy. Updated regularly.</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-thumb thumb-1">🤖</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">AEO</span>
+            <span class="blog-date">May 2025</span>
+          </div>
+          <h3>What is AEO? How to Optimize for Answer Engines in 2025</h3>
+          <p>Answer Engine Optimization is the next frontier. Learn how to structure your content for Google's AI Overviews, Perplexity, and ChatGPT.</p>
+          <span class="read-more">Read More <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb thumb-2">🌍</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">GEO</span>
+            <span class="blog-date">Apr 2025</span>
+          </div>
+          <h3>Generative Engine Optimization: How to Get Your Brand Cited by AI</h3>
+          <p>GEO is about appearing in AI-generated responses. Here's what it takes to get mentioned in Gemini, ChatGPT, and Claude search results.</p>
+          <span class="read-more">Read More <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb thumb-3">🏆</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">E-E-A-T</span>
+            <span class="blog-date">Mar 2025</span>
+          </div>
+          <h3>E-E-A-T Explained: Build Experience, Expertise, Authority & Trust</h3>
+          <p>Google's quality rater guidelines rely on E-E-A-T. Here's how to demonstrate all four pillars and build a site Google trusts.</p>
+          <span class="read-more">Read More <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb thumb-4">⚡</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Technical SEO</span>
+            <span class="blog-date">Feb 2025</span>
+          </div>
+          <h3>Core Web Vitals 2025: What's Changed and How to Pass Them</h3>
+          <p>INP has replaced FID. Here's your complete guide to the 2025 Core Web Vitals, how to measure them, and fixes that actually work.</p>
+          <span class="read-more">Read More <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb thumb-5">🔗</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Link Building</span>
+            <span class="blog-date">Jan 2025</span>
+          </div>
+          <h3>7 White-Hat Link Building Strategies That Still Work in 2025</h3>
+          <p>From digital PR to broken link building, these are the proven backlink strategies that survive algorithm updates and deliver lasting authority.</p>
+          <span class="read-more">Read More <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb thumb-6">📊</div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-cat">Analytics</span>
+            <span class="blog-date">Dec 2024</span>
+          </div>
+          <h3>Google Analytics 4 for SEOs: The Metrics You Actually Need to Track</h3>
+          <p>GA4 is completely different from UA. Here are the exact reports, metrics, and events every SEO professional should be monitoring in 2025.</p>
+          <span class="read-more">Read More <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <span>© 2025 Narendra Kumar · SEO Executive</span>
+    <div class="social-links"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div>
+  </footer>
+</div>
+
+<script>
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    const navEl = document.getElementById('nav-' + name);
+    if(navEl) navEl.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Close menu on outside click
+  document.addEventListener('click', function(e) {
+    if(!e.target.closest('nav') && !e.target.closest('#mobileMenu')) {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
